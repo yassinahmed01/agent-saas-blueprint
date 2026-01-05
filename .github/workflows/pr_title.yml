@@ -1,0 +1,23 @@
+name: PR Title
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  title-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "PR title: $PR_TITLE"
+          if echo "$PR_TITLE" | grep -Eq '^(docs|chore|ci|feat|fix|refactor|test|perf|security):'; then
+            exit 0
+          fi
+          echo "❌ PR title must start with one of: docs:, chore:, ci:, feat:, fix:, refactor:, test:, perf:, security:"
+          exit 1
