@@ -21,4 +21,5 @@ This repo is designed for **10+ specialized agents** working safely in parallel.
 ## Start here
 - AGENTS.md (constitution)
 - Each subsystem has its own AGENTS.md inside the folder
+- docs/runbooks/12-agent-workflow.md (multi-agent epic workflow)
 - CI smoke PR to register required checks.
