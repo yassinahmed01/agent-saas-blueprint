@@ -1,5 +1,6 @@
 ## Summary
 What changed and why?
+PR title must start with: docs:, chore:, ci:, feat:, fix:, refactor:, test:, perf:, security:
 
 ## Scope (folders touched)
 - [ ] apps/web
