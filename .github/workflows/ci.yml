@@ -19,6 +19,7 @@ jobs:
           echo "AGENT_ROLE=$ROLE" >> $GITHUB_ENV
           echo "Branch: $BRANCH"
           echo "Role: $ROLE"
+          if [ -z "$ROLE" ]; then echo "❌ Branch must be agent/<role>/<ticket>-<slug>"; exit 1; fi
 
       - name: Scope enforcement
         run: python3 scripts/scope_check.py
