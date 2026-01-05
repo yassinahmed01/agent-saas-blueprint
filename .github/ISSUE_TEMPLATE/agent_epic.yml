@@ -1,0 +1,61 @@
+name: "Epic: 12-Agent Execution"
+description: "Coordinated Epic for 10+ agents with safe boundaries"
+title: "Epic: <feature name>"
+labels: ["epic", "agent-team"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: "What are we building and why?"
+      placeholder: "One paragraph. Clear business goal."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: "Unambiguous bullets. Testable."
+      placeholder: "- AC1...\n- AC2..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: nonfunctional
+    attributes:
+      label: Non-functional Requirements
+      description: "Security, performance, reliability constraints."
+      placeholder: "- Security...\n- Performance...\n- Reliability..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: prplan
+    attributes:
+      label: PR Plan (role → PR title)
+      description: "List PRs with roles. Each PR should be small and scoped."
+      placeholder: |
+        - spec: PRD + acceptance criteria
+        - architect: ADR + contracts
+        - shared: shared types/contracts
+        - api: endpoints + tests
+        - web: UI + tests
+        - mobile: screens + tests
+        - devops: CI/CD, env, deploy
+        - qa: e2e/regression
+        - security: threat model + fixes
+        - observability: logs/metrics/traces
+        - performance: hotspots + optimizations
+        - docs: README/runbooks
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks & Rollback
+      description: "What might break and how to revert."
+      placeholder: "- Risk...\n- Rollback..."
+    validations:
+      required: true

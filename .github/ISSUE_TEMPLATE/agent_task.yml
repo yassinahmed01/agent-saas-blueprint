@@ -1,0 +1,49 @@
+name: "Agent Task"
+description: "A single scoped task for one agent role"
+title: "[agent:<role>] <task>"
+labels: ["agent-task"]
+body:
+  - type: input
+    id: role
+    attributes:
+      label: Role
+      description: "One of: spec, architect, api, web, mobile, shared, devops, qa, security, observability, performance, docs"
+      placeholder: "api"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope Boundaries
+      description: "What folders are allowed/forbidden?"
+      placeholder: "Allowed: ...\nForbidden: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: "Acceptance criteria relevant to this role."
+      placeholder: "- ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: "Commands/tests + manual steps."
+      placeholder: "- Commands...\n- Manual..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback
+      description: "How to safely revert."
+      placeholder: "- ..."
+    validations:
+      required: true
