@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  scope-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Derive AGENT_ROLE from branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          # Expected: agent/<role>/<ticket>-<slug>
+          ROLE="$(echo "$BRANCH" | awk -F'/' '{print $2}')"
+          echo "AGENT_ROLE=$ROLE" >> $GITHUB_ENV
+          echo "Branch: $BRANCH"
+          echo "Role: $ROLE"
+
+      - name: Scope enforcement
+        run: python3 scripts/scope_check.py
